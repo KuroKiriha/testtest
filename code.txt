@@ -1,0 +1,129 @@
+import os
+import random
+import time
+import datetime
+os.system('cls')
+os.system("title LockFile By Kiriha Developer Team")
+Nameprogram='LockFile By Kiriha'
+print(f'Hello Welcome to Kiriha program {Nameprogram}')
+def error():
+    lg()
+def processes_english():
+    os.system('cls')
+    for b in range(50):
+        os.system('cd ..')
+    os.system('dir')
+    print('\n1.Lock some file (only one file per cycle)\n2.Lock all files\n3.Unlock all files')
+    options=input('\nChoose option : ')
+    if options=='1':
+        name=input("What is file name : ")
+        if name == "Security.exe":
+            print("I can't lock myself.")
+            time.sleep(2)
+            exit()
+        if name == "System Volume Information":
+            print("Can't lock this file/folder")
+            time.sleep(2)
+            exit()
+        os.system(f'attrib +h +r +s "{name}"')
+        print(' OK!')
+        time.sleep(2)
+        exit()
+    elif options=='2':
+        for filename in os.listdir('..'):
+            os.system(f'attrib +h +r +s "{filename}"')
+        print(' OK!')
+        os.system('attrib -r -h -s Security.exe')
+        time.sleep(2)
+        exit()
+    elif options=='3':
+        for filename in os.listdir('..'):
+            os.system(f'attrib -h -r -s "{filename}"')
+            os.system('attrib +h +r +s "System Volume Information"')
+        print(" OK!")
+        time.sleep(2)
+        exit()
+    else:
+        print("Error please try again.")
+        input("Press enter to try again.")
+        error()
+def processes_thai():
+    os.system('cls')
+    for b in range(50):
+        os.system('cd ..')
+    os.system('dir')
+    print('\n1.ล็อกบางไฟล์ (ได้เค่ทีละหนึ่งไฟล์เท่านั้น)\n2.ล็อกไฟล์ทั้งหมด\n3.ปลดล็อกไฟล์ทั้งหมด')
+    options=input('\nเลือกการล็อกไฟล์ของคุณ : ')
+    if options=='1':
+        name=input("ระบุไฟล์ของคุณ : ")
+        if name == "Security.exe":
+            print("ไม่สามารถล็อกตัวเองได้")
+            time.sleep(2)
+            exit()
+        if name == "System Volume Information":
+            print("ไม่สามารถล็อกได้")
+            time.sleep(2)
+            exit()
+        os.system(f'attrib +h +r +s "{name}"')
+        print('ล็อกไฟล์สำเร็จเเล้ว')
+        time.sleep(2)
+        exit()
+    elif options=='2':
+        for filename in os.listdir('..'):
+            os.system(f'attrib +h +r +s "{filename}"')
+        print('ล็อกไฟล์สำเร็จเเล้ว')
+        os.system('attrib -r -h -s Security.exe')
+        os.system('attrib +h +r +s "System Volume Information"')
+        time.sleep(2)
+        exit()
+    elif options=='3':
+        for filename in os.listdir('..'):
+            os.system(f'attrib -h -r -s "{filename}"')
+            os.system('attrib +h +r +s "System Volume Information"')
+            print(" OK!")
+            time.sleep(2)
+    else:
+        print("ผิดพลาดโปรดลองอีกครั้ง")
+        input("กด enter เพื่อลองอีกครั้ง")
+        error()
+def start_english():
+    os.system('cls')
+    makesure=input('Are you sure to run this processes?. (Y/N) : ')
+    yes = ['yes', 'y', 'YES', 'Y']
+    no = ['no', 'n', 'NO', 'N']
+    if makesure in yes:
+        print('\n[INFO] Processes is yes.')
+        print('[INFO] Loading files.')
+        time.sleep(2)
+        processes_english()
+    elif makesure in no:
+        print('\n[INFO] Processes is no.')
+        input('Exiting ... : ')
+def start_thai():
+    os.system('cls')
+    makesure=input('คุณเเน่ใจเเล้วใช่ไหมที่จะเริ่มโปรเเกรมนี้?. (Y/N) : ')
+    yes = ['yes', 'y', 'YES', 'Y']
+    no = ['no', 'n', 'NO', 'N']
+    if makesure in yes:
+        print('\n[เกี่ยวกับ] กระบวนการยืนยันคือ ใช่.')
+        print('[เกี่ยวกับ] กำลังโหลดข้อมูลไฟล์ทั้งหมด.')
+        time.sleep(2)
+        processes_thai()
+    elif makesure in no:
+        print('\n[เกี่ยวกับ] กระบวนการยืนยันคือ ไม่.')
+        input('ออกจากโปรเเกรม ... : ')
+def lg():
+    os.system('cls')
+    print("1.English (ENG) | Recommended\n2.Thai (TH)")
+    lg=input("\nChoose the language. : ")
+    eng = ['eng', 'ENG', 'english', 'ENGLISH', '1']
+    th = ['th','TH', 'thai', 'THAI', '2']
+    if lg in eng:
+        start_english()
+    elif lg in th:
+        start_thai()
+    else:
+        print('Error please try again.')
+        input('\n Press enter to try again ... : ')
+        error()
+lg()
